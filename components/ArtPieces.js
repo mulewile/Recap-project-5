@@ -1,13 +1,18 @@
 import React from "react";
 import Link from "next/link";
+import ArtPiecePreview from "./ArtPiecePreview";
 export default function ArtPieces({ pieces }) {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link href="/"></Link>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      {pieces.map((piece) => (
+        <ArtPiecePreview
+          key={piece.id}
+          image={piece.imageSource}
+          title={piece.name}
+          artist={piece.artist}
+          dimensions={piece.dimensions}
+        />
+      ))}
+    </ul>
   );
 }
